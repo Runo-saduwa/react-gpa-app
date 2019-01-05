@@ -5,7 +5,7 @@ export default class Spinner extends Component {
 		return (
 			<div  style={styles}>
 				<div>
-          <img className="mx-auto" src="/img/spinner.gif" alt="loading...." />
+          <img style={{width:"150px"}}className="mx-auto" src="/img/spinner.gif" alt="loading...." />
 				</div>
 			</div>
 		);
