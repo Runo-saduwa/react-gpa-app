@@ -10,7 +10,7 @@ class Gp extends Component {
 					return (
 					   <div style={styles} className="row justify-content-center align-items-center mx-auto">
                              <div className="col-10 mx-auto text-center">
-							  <h1 className="display-4" style={{marginTop:'-120px'}}>Your GPA is:</h1>
+							  <h1 style={{marginTop:'-120px'}}>Your GPA is:</h1>
 							  <h2 className="display-2">{gpa}</h2>
 							 </div>
 					   </div>

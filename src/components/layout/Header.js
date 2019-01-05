@@ -9,8 +9,13 @@ class Header extends React.Component {
 					<a href="/" className="navbar-brand mr-auto">
 						<strong>{brand}</strong>
 					</a>
-					<div>
-						<ul className="navbar-nav">
+        <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
+            <span className="toggler-icon">
+                <i className="fas fa-bars"></i>
+            </span>
+        </button>
+					<div className="collapse navbar-collapse" id="myNavbar">
+						<ul className="navbar-nav ml-auto">
 							<li className="nav-item">
 								<Link to="/" className="nav-link">
 									<i className="fa fa-home" /> Home

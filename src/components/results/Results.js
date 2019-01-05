@@ -28,7 +28,7 @@ class Results extends Component {
 					return (
 						<React.Fragment>
 							<div className="container mt-5">
-								<h1 className="text-center display-3 mb-3">My Result</h1>
+								<h1 className="text-center mb-3">My Result</h1>
 								<table className="table table-dark">
 									<thead>
 										<tr>
@@ -44,19 +44,19 @@ class Results extends Component {
 									<div className="text-center mb-5">
 										<button
 											onClick={this.CalcGp.bind(this, results, dispatch)}
-											className="btn btn-lg mx-2 btn-outline-dark"
+											className="btn mx-2 mt-2 btn-outline-dark"
 										>
 											Calculate GPA
 										</button>
 										<button
 											onClick={this.DeleteGp.bind(this, dispatch)}
-											className="btn btn-lg btn-outline-danger"
+											className="btn mt-2 btn-outline-danger"
 										>
 											Delete Result
 										</button>
 										<button
 											onClick={this.ContinueCalc.bind(this)}
-											className="btn btn-lg mx-2 btn-outline-dark"
+											className="btn mx-2 mt-2 btn-outline-dark"
 										>
 											Add More Courses?
 										</button>
