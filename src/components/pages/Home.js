@@ -17,6 +17,7 @@ export default class Home extends Component {
 						</div>
 					</div>
 				</div>
+				<span><strong> &copy; Developed By Runo</strong></span>
 			</div>
 		);
 	}
