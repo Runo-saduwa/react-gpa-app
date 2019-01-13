@@ -44,6 +44,8 @@ class SemesterDetails extends Component {
 		setTimeout(() => {
 			this.props.history.push('/results/cgpa');
 		}, 3000);
+		dispatch({ type: 'DELETE_CUMULATIVE_DATA', payload: [] });
+		dispatch({ type: 'DELETE_GP', payload: [] });
 	};
 
 	render() {

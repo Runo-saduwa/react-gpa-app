@@ -31,6 +31,10 @@ const reducer = (state, action) => {
 		 return{
 			 cgpa: action.payload
 		 }
+		 case 'DELETE_CUMULATIVE_DATA':
+		  return{
+			  cumulativeData: action.payload
+		  }
 		default:
 			return state;
 	}
