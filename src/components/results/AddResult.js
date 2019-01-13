@@ -102,11 +102,41 @@ class AddResult extends Component {
 		return (
 			<Consumer>
 				{(value) => {
-					const { dispatch } = value;
+					const { dispatch, results, cumulativeData } = value;
 					return (
 						<div className="container mt-5">
-							<h1>Add Course</h1>
-							<div className="card card-body mb-5">
+
+						{cumulativeData.length > 0 ? <div className="alert alert-success"><strong>Notice!!!:</strong>You have saved {cumulativeData.length} semesters result, This is a new semester result you are presently adding new courses to</div>: null}
+                         <div className="jumbotron">
+
+                             <hr/>
+                            <h4>Add Course To Semester Result</h4>
+							<hr/>
+						 	{results.length === 0 ? (
+								<ul className="my-3 list-group">
+									<li className="bg-dark list-group-item text-white">
+										You have added <span className="badge badge-primary">{results.length}</span> course
+										to this semester's result
+									</li>
+								</ul>
+							) : results.length === 1 ? (
+								<ul className="my-3 list-group">
+									<li className="bg-dark list-group-item text-white">
+										You have added <span className="badge badge-primary">{results.length}</span> course
+										to this semester's result
+									</li>
+								</ul>
+							) : (
+								<ul className="list-group my-3">
+									<li className="bg-dark list-group-item text-white">
+										You have add <span className="badge badge-primary">{results.length}</span> courses
+										to this semester's result
+									</li>
+								</ul>
+							)}
+							
+						    
+						 <div className="card card-body mb-5">
 								{errMessage ? (
 									<div className="alert alert-danger">
 										<strong>
@@ -153,6 +183,12 @@ class AddResult extends Component {
 									</form>
 								</div>
 							</div>
+
+
+
+						 </div>
+					
+						
 						</div>
 					);
 				}}
