@@ -1,22 +1,52 @@
 import React, { Component } from 'react';
 import Result from './Result';
+import uuid from 'uuid';
 import { Consumer } from '../../Context';
 class Results extends Component {
+
 	CalcGp = (results, dispatch) => {
 		const totalUnits = results.map((result) => parseInt(result.unit)).reduce((prev, next) => prev + next);
 		const totalGradeVal = results.map((result) => result.gradeVal).reduce((prev, next) => prev + next);
 		let gpa = (totalGradeVal / totalUnits).toFixed(2);
-
 		dispatch({ type: 'GPA', payload: gpa });
 		this.props.history.push('/spinner');
 		setTimeout(() => {
 			this.props.history.push('/results/gp');
 		}, 3000);
 	};
+
+	AddNewResult = (results, dispatch) => {
+		const totalUnits = results.map((result) => parseInt(result.unit)).reduce((prev, next) => prev + next);
+		const totalGradeVal = results.map((result) => result.gradeVal).reduce((prev, next) => prev + next);
+		const cumulative_data = {
+			totalUnits: totalUnits,
+			totalGradeVal: totalGradeVal
+		}
+        console.log(cumulative_data);
+		dispatch({type: 'CUMULATIVE_DATA', payload: cumulative_data});
+		this.DeleteGp(dispatch);
+		this.props.history.push('/addresults');
+	}
+
+	calc_cgpa = (results, dispatch) => {
+		const totalUnits = results.map((result) => parseInt(result.unit)).reduce((prev, next) => prev + next);
+		const totalGradeVal = results.map((result) => result.gradeVal).reduce((prev, next) => prev + next);
+		const cumulative_data = {
+			totalUnits: totalUnits,
+			totalGradeVal: totalGradeVal
+		}
+		console.log(cumulative_data);
+		dispatch({type: 'CUMULATIVE_DATA', payload: cumulative_data});
+
+		//Semester details 
+     	this.props.history.push('results/semesterDetails');
+	}
 	DeleteGp = (dispatch) => {
 		const newResult = [];
 		dispatch({ type: 'DELETE_GP', payload: newResult });
+
 	};
+
 	ContinueCalc = () => {
 		this.props.history.push('/addresults');
 	};
@@ -59,6 +89,18 @@ class Results extends Component {
 											className="btn mx-2 mt-2 btn-outline-dark"
 										>
 											Add More Courses?
+										</button>
+										<button
+											onClick={this.AddNewResult.bind(this, results, dispatch)}
+											className="btn mt-2 btn-outline-dark"
+										>
+											Add another result
+										</button>
+										<button
+											onClick={this.calc_cgpa.bind(this, results, dispatch)}
+											className="btn mt-2 mx-2 btn-outline-dark"
+										>
+											calculate CGPA
 										</button>
 									</div>
 								) : null}

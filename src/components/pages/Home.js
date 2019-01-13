@@ -10,9 +10,9 @@ export default class Home extends Component {
 				<div className="text-align-center" style={styles}>
 					<div className="row align-items-center justify-content-center" style={{ height: '80vh' }}>
 						<div className="col col-md-10 mx-auto" style={{ color: '#fff' }}>
-							<h1 className="mb-0">Akumlate v1.0.1</h1>
+							<h1 className="mb-0">Akumlate v1.1.1</h1>
 							<button onClick={this.showForm} className="mt-0 btn btn-light">
-								Start Calculating GPA
+								Start Calculating
 							</button>
 						</div>
 					</div>

@@ -22,6 +22,15 @@ const reducer = (state, action) => {
 			return {
 				gpa: action.payload
 			};
+		case 'CUMULATIVE_DATA':
+		     return {
+			   ...state,
+			   cumulativeData: [action.payload, ...state.cumulativeData]
+			 };
+		case 'CGPA':
+		 return{
+			 cgpa: action.payload
+		 }
 		default:
 			return state;
 	}
@@ -48,7 +57,11 @@ export class Provider extends Component {
 			// 	unit: '1'
 			// }
 		],
+         cumulativeData :[
+
+		 ],
 		gpa: 0,
+		cgpa:0,
 		dispatch: (action) => {
 			this.setState((state) => reducer(state, action));
 		}
